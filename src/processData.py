@@ -5,7 +5,7 @@ import sys
 def processData(filepath: str) -> pd.DataFrame:
   '''
   This function accepts a filepath to a csv file containing human
-  tissue data at a certain resolution
+  tissue data at a certain resolution. Returns a dataframe containing data at filepath
   '''
   
   # Check whether filepath exists, if not, kill program
