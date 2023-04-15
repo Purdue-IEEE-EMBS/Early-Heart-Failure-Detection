@@ -14,7 +14,7 @@ def calcAbsRate(rel_perm, cond, z, E, w):
     # E is amplitude of wave signal
     imagPerm = cond/w
     abs_perm = 8.85419e-12
-    u = 1.256627e-6
+    u = 1.25663706e-6
     realPerm = abs_perm * rel_perm
 
     magPerm = math.sqrt((imagPerm ** 2) + (realPerm ** 2))
