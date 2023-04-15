@@ -6,15 +6,18 @@ Created on Sun Mar 26 14:00:46 2023
 """
 import math
 
-def calcAbsRate(realPerm, u, cond, z, E):
+def calcAbsRate(rel_perm, u, cond, z, E, w):
     # realPerm is real part of permittivity
     # u is permeability
     # cond is conductivty
     # z is thickness of layer
     # E is amplitude of wave signal
-    w = 2000 #changes based on input wave
     imagPerm = cond/w
-    absPerm = math.sqrt((imagPerm ** 2) * (realPerm ** 2))
-    a = w * math.sqrt(u/ (2 * (realPerm + absPerm)) * imagPerm)
-    EB = E * math.exp(-a * z)
-    return EB
+    abs_perm = 8.85419e-12
+    realPerm = abs_perm * rel_perm
+
+    magPerm = math.sqrt((imagPerm ** 2) + (realPerm ** 2))
+    a = w * math.sqrt(u / (2 * (realPerm + magPerm)) * imagPerm)
+    E_B = E * math.exp(-a * z)
+
+    return E_B
